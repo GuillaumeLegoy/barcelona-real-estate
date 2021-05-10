@@ -54,7 +54,6 @@ for link in links:
     print(link)
     print(link.rsplit("/", 1)[-1])
     print(link.rsplit("/", 2)[-2][1:])
-    print(name)
 
     URL = link
     page = requests.get(URL)
@@ -181,5 +180,27 @@ for link in links:
 
     df = df.append(result, ignore_index=True)
 
+columns = [
+    "Compraventas Total",
+    "Compraventas Vivienda Nueva Libre  ",
+    "Compraventas Vivienda Nueva Protegida",
+    "Compraventas Vivienda Usada",
+    "",
+    "Superficie media (m2 construidos) Total",
+    "Superficie media (m2 construidos) Vivienda Nueva Libre  ",
+    "Superficie media (m2 construidos) Vivienda Nueva Protegida",
+    "Superficie media (m2 construidos) Vivienda Usada",
+    "",
+    "Precio Total (miles de euros) Total",
+    "Precio Total (miles de euros) Vivienda Nueva  ",
+    "Precio Total (miles de euros) Vivienda Usada",
+    "",
+    "Precio €/m2 construidos Total",
+    "Precio €/m2 construidos Vivienda Nueva  ",
+    "Precio €/m2 construidos Vivienda Usada",
+    "Barrios",
+    "Year",
+]
 
+df.columns = columns
 df.to_csv("results_final.csv")
